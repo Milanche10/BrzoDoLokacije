@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    tools:context=".HomeActivity">
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".LikespageActivity">
+
+        <include
+            android:id="@+id/include"
+            layout="@layout/header"></include>
+
+        <TextView
+            android:id="@+id/brLajkova"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="10dp"
+            android:textColor="@color/lightGray"
+            android:textSize="18dp"
+            android:layout_centerHorizontal="true"
+            app:layout_constraintBottom_toTopOf="@id/recyclerView_likes"
+            >
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recyclerView_likes"
+            android:layout_width="match_parent"
+            android:layout_height="595dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="80dp"
+            app:layout_anchor="@+id/include"
+            app:layout_anchorGravity="center"
+            app:layout_constraintTop_toBottomOf="parent" />
+
+        <include layout="@layout/bottom_bar"></include>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>

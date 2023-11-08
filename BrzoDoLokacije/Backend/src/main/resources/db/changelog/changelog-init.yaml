@@ -1,0 +1,117 @@
+databaseChangeLog:
+- changeSet:
+    id: 1667822596003-1
+    author: Jovanovic (generated)
+    changes:
+    - createSequence:
+        incrementBy: 1
+        sequenceName: hibernate_sequence
+        startValue: 1
+- changeSet:
+    id: 1667822596003-2
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_userPK
+            name: id
+            type: BIGINT
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: first_name
+            type: VARCHAR(255)
+        - column:
+            name: last_name
+            type: VARCHAR(255)
+        - column:
+            name: password
+            type: VARCHAR(255)
+        tableName: app_user
+- changeSet:
+    id: 1667822596003-3
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: locationPK
+            name: id
+            type: BIGINT
+        - column:
+            name: lat
+            type: FLOAT8
+        - column:
+            name: lon
+            type: FLOAT8
+        - column:
+            name: name
+            type: VARCHAR(255)
+        tableName: location
+- changeSet:
+    id: 1667822596003-4
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: social_postPK
+            name: id
+            type: BIGINT
+        - column:
+            name: date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: app_user_id
+            type: BIGINT
+        - column:
+            name: location_id
+            type: BIGINT
+        tableName: social_post
+- changeSet:
+    id: 1667822596003-5
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_user_id
+        baseTableName: social_post
+        constraintName: FK1gd0bd5uxftlc1h8ukim5x32b
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_user
+        validate: true
+- changeSet:
+    id: 1667822596003-6
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: location_id
+        baseTableName: social_post
+        constraintName: FKkp68cfn34mfo5xftl5h7eiaxh
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: location
+        validate: true
+

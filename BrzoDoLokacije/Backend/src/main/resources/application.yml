@@ -1,0 +1,42 @@
+server:
+  port: 10092
+
+spring:
+  main:
+    allow-circular-references: true
+  servlet:
+    multipart:
+      max-file-size: 100MB
+      max-request-size: 100MB
+
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://localhost:5432/look4
+    username: postgres
+    password: root
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+    properties:
+      hibernate:
+        ddl-auto: update
+        naming:
+          physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+          implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyJpaImpl
+        bytecode:
+          allow_enhancement_as_proxy: true
+        dialect: org.hibernate.dialect.PostgreSQL10Dialect
+        format_sql: true
+        order_updates: true
+        order_inserts: true
+    show-sql: true
+sql:
+  syntax_pgs: true
+  liquibase:
+  # Remove 'faker' if you do not want the sample data to be loaded automatically
+    drop-first: false
+jwt:
+  header: Authorization
+  secret: zizolino

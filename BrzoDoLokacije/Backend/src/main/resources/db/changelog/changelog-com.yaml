@@ -1,0 +1,275 @@
+databaseChangeLog:
+- changeSet:
+    id: 1668289323029-1
+    author: Jovanovic (generated)
+    changes:
+    - createSequence:
+        incrementBy: 1
+        sequenceName: hibernate_sequence
+        startValue: 1
+- changeSet:
+    id: 1668289323029-2
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: app_userPK
+            name: id
+            type: BIGINT
+        - column:
+            name: email
+            type: VARCHAR(255)
+        - column:
+            name: first_name
+            type: VARCHAR(255)
+        - column:
+            name: last_name
+            type: VARCHAR(255)
+        - column:
+            name: password
+            type: VARCHAR(255)
+        - column:
+            name: image_id
+            type: BIGINT
+        tableName: app_user
+- changeSet:
+    id: 1668289323029-3
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: commentPK
+            name: id
+            type: BIGINT
+        - column:
+            name: content
+            type: VARCHAR(255)
+        - column:
+            name: app_user_id
+            type: BIGINT
+        - column:
+            name: social_post_id
+            type: BIGINT
+        tableName: comment
+- changeSet:
+    id: 1668289323029-4
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: imagePK
+            name: id
+            type: BIGINT
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: url
+            type: VARCHAR(255)
+        - column:
+            name: social_post_id
+            type: BIGINT
+        tableName: image
+- changeSet:
+    id: 1668289323029-5
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: like_reactionPK
+            name: id
+            type: BIGINT
+        - column:
+            name: app_user_id
+            type: BIGINT
+        - column:
+            name: social_post_id
+            type: BIGINT
+        tableName: like_reaction
+- changeSet:
+    id: 1668289323029-6
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: locationPK
+            name: id
+            type: BIGINT
+        - column:
+            name: lat
+            type: FLOAT8
+        - column:
+            name: lon
+            type: FLOAT8
+        - column:
+            name: name
+            type: VARCHAR(255)
+        tableName: location
+- changeSet:
+    id: 1668289323029-7
+    author: Jovanovic (generated)
+    changes:
+    - createTable:
+        columns:
+        - column:
+            autoIncrement: true
+            constraints:
+              nullable: false
+              primaryKey: true
+              primaryKeyName: social_postPK
+            name: id
+            type: BIGINT
+        - column:
+            name: date
+            type: TIMESTAMP WITHOUT TIME ZONE
+        - column:
+            name: description
+            type: VARCHAR(255)
+        - column:
+            name: name
+            type: VARCHAR(255)
+        - column:
+            name: app_user_id
+            type: BIGINT
+        - column:
+            name: location_id
+            type: BIGINT
+        tableName: social_post
+- changeSet:
+    id: 1668289323029-8
+    author: Jovanovic (generated)
+    changes:
+    - addUniqueConstraint:
+        columnNames: image_id
+        constraintName: UC_APP_USERIMAGE_ID_COL
+        tableName: app_user
+- changeSet:
+    id: 1668289323029-9
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_user_id
+        baseTableName: social_post
+        constraintName: FK1gd0bd5uxftlc1h8ukim5x32b
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_user
+        validate: true
+- changeSet:
+    id: 1668289323029-10
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: social_post_id
+        baseTableName: image
+        constraintName: FK3bxr0ykca6dbfct1e4s9ucdit
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: social_post
+        validate: true
+- changeSet:
+    id: 1668289323029-11
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_user_id
+        baseTableName: like_reaction
+        constraintName: FK3ogp7iw3fnwmbj1robmfdnmlp
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_user
+        validate: true
+- changeSet:
+    id: 1668289323029-12
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: social_post_id
+        baseTableName: like_reaction
+        constraintName: FKfp5fcm0qvtbboearcugxxaidc
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: social_post
+        validate: true
+- changeSet:
+    id: 1668289323029-13
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: social_post_id
+        baseTableName: comment
+        constraintName: FKfu9ck9ishvys9oukgh3akrrkh
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: social_post
+        validate: true
+- changeSet:
+    id: 1668289323029-14
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: image_id
+        baseTableName: app_user
+        constraintName: FKh4k118myb9hp60bm30vh4msnc
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: image
+        validate: true
+- changeSet:
+    id: 1668289323029-15
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: location_id
+        baseTableName: social_post
+        constraintName: FKkp68cfn34mfo5xftl5h7eiaxh
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: location
+        validate: true
+- changeSet:
+    id: 1668289323029-16
+    author: Jovanovic (generated)
+    changes:
+    - addForeignKeyConstraint:
+        baseColumnNames: app_user_id
+        baseTableName: comment
+        constraintName: FKoiowl0v9ya04yfntyt8s9vdrk
+        deferrable: false
+        initiallyDeferred: false
+        referencedColumnNames: id
+        referencedTableName: app_user
+        validate: true
+

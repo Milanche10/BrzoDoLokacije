@@ -1,0 +1,27 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Theme.Frontend" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/blue</item>
+        <item name="colorPrimaryVariant">@color/skyBlueD</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="android:textColor">@color/blueGrey</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/skyBlue</item>
+        <item name="colorSecondaryVariant">@color/skyBlueD</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:actionMenuTextColor">@color/blueGrey</item>
+
+        <!-- Customize your theme here. -->
+    </style>
+    <style name="TabLayoutTextStyle">
+        <item name="android:textSize">16sp</item>
+        <item name="android:shadowColor">@color/lightGray</item>
+        <item name="android:shadowDx">2</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">3</item>
+    </style>
+
+</resources>

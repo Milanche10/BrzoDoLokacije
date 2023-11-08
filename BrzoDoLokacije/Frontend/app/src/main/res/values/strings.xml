@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">BrzoDoLokacije</string>
+    <string name="required"></string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="submit">Submit</string>
+    <string name="FirstName">First Name</string>
+    <string name="LastName">Last name</string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
+</resources>
